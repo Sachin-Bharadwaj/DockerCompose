@@ -1,0 +1,19 @@
+services:
+  postgress_user_app:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+    
+  user_app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgress_user_app:5432/postgres
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgress_user_app
