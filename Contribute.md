@@ -15,4 +15,15 @@
 
 ## Docker installation
 
+    - Install Docker
+    - Start Postgress
+        - docker run -d -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
+    - Build the image
+        - docker build -t image_name
+    - Start the image
+        - docker run -p 3000:3000 image_name .
+
 ## Docker Compose installation steps
+
+    - Install Docker, docker-compose
+    - Run `docker-compose up`
